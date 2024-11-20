@@ -1,20 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
+import { Injectable, inject } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = environment.urlServidor;
 
-  private http = inject(HttpClient);
+  private baseUrl="http://127.0.0.1:3000" //solo para pruebas deberia ir "http://127.0.0.1:3000"
 
-  constructor() {}
-  loginConNest(credenciales: any) {
-    return this.http.post<any>(`${this.baseUrl}/auth/login`, credenciales);
+  private http=inject(HttpClient)
+
+  constructor() { }
+
+  loginConNest(credenciales: any){
+    return this.http.post<any>(`${this.baseUrl}/auth/login`, credenciales); 
   }
-  registroConNest(datos: any) {
-    return this.http.post<any>(`${this.baseUrl}/register`, datos);
+
+  registroConNest(datos: any){
+    return this.http.post<any>(`${this.baseUrl}/register`,datos);
   }
 }

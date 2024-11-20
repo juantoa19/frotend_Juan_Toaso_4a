@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Frontend_4-A": {
+    "front_angular_nest": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/frontend-4-a",
+            "outputPath": "dist/front_angular_nest",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -26,10 +26,9 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets",
+              "src/fonts"
             ],
             "styles": [
               "src/styles.scss"
@@ -69,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Frontend_4-A:build:production"
+              "buildTarget": "front_angular_nest:build:production"
             },
             "development": {
-              "buildTarget": "Frontend_4-A:build:development"
+              "buildTarget": "front_angular_nest:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,10 +89,9 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets",
+              "src/fonts"
             ],
             "styles": [
               "src/styles.scss"
@@ -105,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "8d51bb14-35e6-4773-acf8-9b5ecf14c9be"
   }
 }
