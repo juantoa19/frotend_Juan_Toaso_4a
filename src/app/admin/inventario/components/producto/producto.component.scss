@@ -1,0 +1,50 @@
+// Asegúrate de que las celdas mantengan el comportamiento tradicional de tabla
+.product-cell {
+    vertical-align: middle;  // Alineación vertical
+    padding: 10px;           // Espaciado dentro de la celda
+    border: 1px solid #ddd;  // Borde suave
+    display: table-cell;     // Asegura que las celdas se comporten como celdas tradicionales de tabla
+    
+    // Opcional: Estilo para los títulos de las columnas dentro de las celdas
+    .p-column-title {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+  
+    img {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100px;
+      height: auto;
+    }
+  
+    // Texto largo que se corta si no cabe en la celda
+    .long-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  
+  // Estilo para las celdas que contienen los botones de acción (editar, eliminar)
+  .product-cell .flex {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  // Asegúrate de que la tabla sea responsiva para dispositivos pequeños
+  @media (max-width: 768px) {
+    .product-cell {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;  // Separa las celdas en pantallas pequeñas
+    }
+  
+    .product-cell img {
+      width: 50px;  // Ajusta las imágenes en dispositivos pequeños
+    }
+  }
+  
