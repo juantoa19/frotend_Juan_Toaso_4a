@@ -39,21 +39,27 @@
 
                     <div class="flex align-items-center justify-content-between mb-5 gap-5">
                         <div class="flex align-items-center">
-                            <input type="checkbox" id="rememberme1" />
+                            <!-- Uso de ngModel con standalone: true -->
+                            <input type="checkbox" id="rememberme1" [(ngModel)]="rememberMe" [ngModelOptions]="{standalone: true}" />
                             <label for="rememberme1">Recuérdame</label>
-                        </div>
-                        <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)" [routerLink]="['/forgot-password']">
-                            ¿Olvidaste tu contraseña?
-                        </a>
+                          </div>
+                          
+                        <a 
+                        class="font-medium no-underline ml-2 text-right cursor-pointer" 
+                        style="color: var(--primary-color)" 
+                        [routerLink]="['/auth/forgot-password']">
+                        ¿Olvidaste tu contraseña?
+                      </a>
                     </div>
                     <button 
-                        pButton 
-                        pRipple 
-                        label="Iniciar Sesión" 
-                        class="w-full p-3 text-xl" 
-                        [disabled]="!loginForm.valid" 
-                        (click)="funIngresar()">
-                    </button>
+    pButton 
+    pRipple 
+    label="Iniciar Sesión" 
+    class="w-full p-3 text-xl" 
+    [disabled]="!loginForm.valid" 
+    type="button"
+    (click)="funIngresar()">
+</button>
                 </form>
             </div>
         </div>
