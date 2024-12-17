@@ -7,11 +7,12 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
+  
 })
 export class ResetPasswordComponent implements OnInit {
-  token: string | null = null;  // Guardar el token recibido
-  newPassword: string = '';     // Guardar la nueva contraseña
-  confirmPassword: string = ''; // Guardar la confirmación de la contraseña
+  token: string | null = null;  // Guarda token recibido
+  newPassword: string = '';     // Guarda nueva contraseña
+  confirmPassword: string = ''; // Guarda confirmación de la contraseña
 
   constructor(
     private route: ActivatedRoute,
@@ -30,14 +31,19 @@ export class ResetPasswordComponent implements OnInit {
       // Llamar al servicio para restablecer la contraseña
       this.authService.resetPassword(this.token, this.newPassword).subscribe(
         response => {
+          // Muestra una alerta de éxito
           Swal.fire('Éxito', 'Contraseña restablecida correctamente', 'success');
-          this.router.navigate(['/login']);  // Redirigir al usuario a la página de login
+
+          // Redirige al usuario a la página de login
+          this.router.navigate(['/auth/login']);  // Asegúrate de que la ruta sea '/auth/login'
         },
         error => {
+          // Muestra una alerta de error si no se pudo restablecer la contraseña
           Swal.fire('Error', 'No se pudo restablecer la contraseña', 'error');
         }
       );
     } else {
+      // Si las contraseñas no coinciden o el token no es válido
       Swal.fire('Error', 'Las contraseñas no coinciden o el token es inválido', 'error');
     }
   }

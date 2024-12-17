@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="flex flex-column align-items-center justify-content-center">
+
+        <div
+            style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%); border: 2px solid #33b5e5;">
+            <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px; border: 2px solid #33b5e5;">
+                <div class="text-center mb-5">
+                    <img src="assets/demo/images/login/goku.png" alt="Imagen de avatar" height="50" class="mb-3">
+                    <div class="text-900 text-3xl font-medium mb-3">¡Regístrate Juanky !</div>
+                    <span class="text-600 font-medium">Create una cuenta para continuar!!</span>
+                </div>
+
+                <!-- Formulario Reactivo -->
+                <form [formGroup]="registerForm">
+                    <label for="name" class="block text-900 text-xl font-medium mb-2">Nombre</label>
+                    <input id="name" type="text" formControlName="name" placeholder="Tu nombre completo" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem; border: 2px solid #33b5e5; border-radius: 8px;">
+                    <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-red-500 text-sm">
+                        El nombre es obligatorio.
+                    </div>
+
+                    <label for="email" class="block text-900 text-xl font-medium mb-2">Correo Electrónico</label>
+                    <input id="email" type="email" formControlName="email" placeholder="Dirección de correo electrónico" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem; border: 2px solid #33b5e5; border-radius: 8px;">
+                    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-red-500 text-sm">
+                        Ingresa un correo válido.
+                    </div>
+
+                    <label for="password" class="block text-900 text-xl font-medium mb-2">Contraseña</label>
+                    <input id="password" type="password" formControlName="password" placeholder="Contraseña" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem; border: 2px solid #33b5e5; border-radius: 8px;">
+                    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-red-500 text-sm">
+                        La contraseña debe tener al menos 6 caracteres.
+                    </div>
+
+                    <label for="telefono" class="block text-900 text-xl font-medium mb-2">Teléfono (si lo deseas)</label>
+                    <input id="telefono" type="text" formControlName="telefono" placeholder="Número de teléfono" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem; border: 2px solid #33b5e5; border-radius: 8px;">
+  
+                    <button pButton pRipple label="Registrarme" class="w-full p-3 text-xl" [disabled]="!registerForm.valid" type="button" (click)="funRegistrar()" style="border: 2px solid #33b5e5; background-color: #33b5e5; color: white; border-radius: 8px;">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
